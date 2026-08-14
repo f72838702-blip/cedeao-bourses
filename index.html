@@ -3,9 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Plateforme d'orientation académique et bourses d'études vérifiées pour la zone CEDEAO/UEMOA. 65 bourses d'élite, 22 destinations, volet handicap 100% pris en charge. Obtenez le Guide 2026-2027 et décrochez votre admission." />
+  <meta name="description" content="Décrochez votre bourse internationale sans intermédiaire. 65 bourses d'élite, 22 destinations, volet handicap 100% pris en charge. Obtenez le Guide 2026-2027 et postulez cette année." />
   <meta name="theme-color" content="#0f172a" />
-  <title>CEDEAO Bourses — Orientation académique & bourses vérifiées 2026-2027</title>
+
+  <!-- Open Graph (partage WhatsApp / réseaux) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CEDEAO Bourses — Décrochez votre bourse internationale 2026-2027" />
+  <meta property="og:description" content="65 bourses d'élite, 22 destinations, volet handicap 100%. Le guide complet pour postuler cette année, sans intermédiaire." />
+  <meta property="og:url" content="https://cedeao-bourses.vercel.app" />
+  <meta property="og:image" content="https://cedeao-bourses.vercel.app/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+
+  <title>CEDEAO Bourses — Décrochez votre bourse internationale 2026-2027</title>
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -37,53 +49,58 @@
 
   <style>
     body { font-family: 'Inter', sans-serif; }
-    /* Contraste élevé / focus visible (WCAG) */
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-      outline: 3px solid #d4af37;
-      outline-offset: 2px;
-      border-radius: 4px;
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+      outline: 3px solid #d4af37; outline-offset: 2px; border-radius: 4px;
     }
     .skip-link { position: absolute; left: -9999px; top: auto; }
     .skip-link:focus { left: 8px; top: 8px; z-index: 100; background: #fff; color: #0f172a; padding: 8px 14px; border-radius: 6px; }
-    .hero-grid {
-      background-image: radial-gradient(rgba(212,175,55,0.10) 1px, transparent 1px);
-      background-size: 22px 22px;
+    .hero-grid { background-image: radial-gradient(rgba(212,175,55,0.10) 1px, transparent 1px); background-size: 22px 22px; }
+    /* Mockup rapport */
+    .book {
+      transform: perspective(900px) rotateY(-22deg) rotateX(6deg);
+      box-shadow: -18px 22px 40px rgba(0,0,0,0.55), inset 4px 0 0 rgba(255,255,255,0.06);
     }
+    @keyframes pulseDot { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .live-dot { animation: pulseDot 1.4s infinite; }
+    details[open] .faq-chev { transform: rotate(180deg); }
+    .faq-chev { transition: transform .2s ease; }
   </style>
 </head>
 
 <body class="bg-nuit text-slate-100 antialiased">
 
-  <!-- Lien d'évitement (accessibilité) -->
   <a href="#contenu" class="skip-link">Aller au contenu principal</a>
+
+  <!-- ====================== BANDEAU D'URGENCE ====================== -->
+  <div class="bg-gradient-to-r from-or via-[#e6c655] to-or text-nuit text-center text-xs sm:text-sm font-semibold py-2 px-3">
+    <span class="inline-flex items-center gap-2">
+      <span class="live-dot h-2 w-2 rounded-full bg-nuit" aria-hidden="true"></span>
+      Promotion 2026-2027 ouverte — les candidatures ferment bientôt. Garantie satisfait ou remboursé 14 jours.
+    </span>
+  </div>
 
   <!-- ====================== NAVBAR ====================== -->
   <header class="sticky top-0 z-50 bg-nuit/95 backdrop-blur border-b border-slate-700/60">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
       <div class="flex items-center justify-between h-16">
-
-        <!-- Logo + Nom -->
         <a href="#" class="flex items-center gap-2.5 shrink-0" aria-label="Accueil CEDEAO Bourses">
           <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-conf text-white font-extrabold shadow-lg shadow-conf/30" aria-hidden="true">C</span>
-          <span class="font-bold text-lg tracking-tight">
-            CEDEAO<span class="text-conf"> Bourses</span>
-          </span>
+          <span class="font-bold text-lg tracking-tight">CEDEAO<span class="text-conf"> Bourses</span></span>
         </a>
 
-        <!-- Liens desktop -->
         <ul class="hidden lg:flex items-center gap-7 text-sm font-medium">
           <li><a href="#guide" class="hover:text-orlight transition-colors">Le Guide 2026-2027</a></li>
+          <li><a href="#etapes" class="hover:text-orlight transition-colors">Comment ça marche</a></li>
           <li><a href="#inclusivite" class="hover:text-orlight transition-colors">Inclusivité &amp; Handicap</a></li>
-          <li><a href="#anti-arnaque" class="hover:text-orlight transition-colors">Nos Garanties</a></li>
+          <li><a href="#temoignages" class="hover:text-orlight transition-colors">Réussites</a></li>
+          <li><a href="#faq" class="hover:text-orlight transition-colors">FAQ</a></li>
           <li><a href="#contact" class="hover:text-orlight transition-colors">Contact</a></li>
         </ul>
 
-        <!-- CTA + burger -->
         <div class="flex items-center gap-3">
           <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
              class="hidden sm:inline-flex items-center gap-1.5 bg-conf hover:bg-confdark text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors shadow-lg shadow-conf/25">
-            Boutique Officielle
-            <span aria-hidden="true">↗</span>
+            Boutique Officielle <span aria-hidden="true">↗</span>
           </a>
           <button id="menu-btn" type="button" class="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-slate-600 text-slate-200"
                   aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
@@ -92,12 +109,13 @@
         </div>
       </div>
 
-      <!-- Menu mobile -->
       <div id="menu-mobile" class="hidden lg:hidden pb-4 border-t border-slate-700/60">
         <ul class="flex flex-col gap-1 pt-3 text-sm font-medium">
           <li><a href="#guide" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">Le Guide 2026-2027</a></li>
+          <li><a href="#etapes" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">Comment ça marche</a></li>
           <li><a href="#inclusivite" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">Inclusivité &amp; Handicap</a></li>
-          <li><a href="#anti-arnaque" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">Nos Garanties</a></li>
+          <li><a href="#temoignages" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">Réussites</a></li>
+          <li><a href="#faq" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">FAQ</a></li>
           <li><a href="#contact" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">Contact</a></li>
           <li class="pt-2">
             <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
@@ -117,19 +135,16 @@
       <div class="absolute inset-0 -z-10 bg-gradient-to-b from-nuit2/40 via-nuit to-nuit"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32 text-center">
 
-        <!-- Badge -->
         <span class="inline-flex items-center gap-2 rounded-full bg-or/10 text-or border border-or/40 px-4 py-1.5 text-xs sm:text-sm font-semibold tracking-wide">
           <span class="h-2 w-2 rounded-full bg-or" aria-hidden="true"></span>
           Édition Officielle CEDEAO 2026-2027
         </span>
 
-        <!-- H1 -->
         <h1 id="hero-title" class="mt-6 text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
           Décrochez votre <span class="text-conf">Bourse Internationale</span><br class="hidden sm:block" />
           sans Intermédiaire
         </h1>
 
-        <!-- Sous-titre -->
         <p class="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed">
           La méthode complète pour décrocher une bourse internationale, sans intermédiaire ni perte de temps.
           <span class="font-semibold text-white">65 bourses d'élite</span>,
@@ -138,7 +153,6 @@
           et la <span class="font-semibold text-white">stratégie qui transforme une candidature en admission</span>.
         </p>
 
-        <!-- Boutons -->
         <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-conf hover:bg-confdark text-white font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-xl shadow-conf/25">
@@ -147,29 +161,35 @@
           </a>
           <a href="#contact"
              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border border-slate-500 hover:border-or hover:text-orlight text-slate-100 font-semibold px-7 py-3.5 rounded-xl transition-colors">
-            Parler à un conseiller
+            Audit gratuit de mon profil
           </a>
         </div>
 
-        <!-- Mini stats -->
-        <dl class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto">
-          <div class="text-center">
-            <dt class="text-3xl font-extrabold text-or">65</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Bourses répertoriées</dd>
+        <!-- Trust line sous CTA -->
+        <p class="mt-5 text-xs sm:text-sm text-slate-400">
+          Accès immédiat &nbsp;•&nbsp; Paiement sécurisé &nbsp;•&nbsp; Garantie 14 jours
+        </p>
+
+        <!-- Preuve sociale compacte -->
+        <div class="mt-8 inline-flex items-center gap-3 text-sm text-slate-300">
+          <div class="flex -space-x-2" aria-hidden="true">
+            <span class="h-8 w-8 rounded-full bg-conf border-2 border-nuit flex items-center justify-center text-xs font-bold">AD</span>
+            <span class="h-8 w-8 rounded-full bg-or border-2 border-nuit flex items-center justify-center text-xs font-bold text-nuit">IT</span>
+            <span class="h-8 w-8 rounded-full bg-nuit3 border-2 border-nuit flex items-center justify-center text-xs font-bold">FB</span>
           </div>
-          <div class="text-center">
-            <dt class="text-3xl font-extrabold text-or">22</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Destinations</dd>
-          </div>
-          <div class="text-center">
-            <dt class="text-3xl font-extrabold text-or">100%</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Volet handicap</dd>
-          </div>
-          <div class="text-center">
-            <dt class="text-3xl font-extrabold text-or">5</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Modèles de lettres gagnants</dd>
-          </div>
+          <span><strong class="text-white">500+ étudiants</strong> déjà orientés vers leur bourse</span>
+        </div>
+
+        <dl class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto">
+          <div class="text-center"><dt class="text-3xl font-extrabold text-or">65</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Bourses d'élite</dd></div>
+          <div class="text-center"><dt class="text-3xl font-extrabold text-or">22</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Destinations</dd></div>
+          <div class="text-center"><dt class="text-3xl font-extrabold text-or">100%</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Volet handicap</dd></div>
+          <div class="text-center"><dt class="text-3xl font-extrabold text-or">5</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Lettres gagnantes</dd></div>
         </dl>
       </div>
     </section>
 
-    <!-- ====================== CARTES DE REDIRECTION ====================== -->
+    <!-- ====================== CARTE DE REDIRECTION ====================== -->
     <section id="guide" class="bg-slate-50 text-nuit" aria-labelledby="offres-title">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div class="text-center max-w-2xl mx-auto">
@@ -182,29 +202,50 @@
           <!-- Carte 1 : Rapport Unifié -->
           <article class="relative flex flex-col bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
             <div class="h-1.5 bg-gradient-to-r from-conf to-or" aria-hidden="true"></div>
-            <div class="p-7 sm:p-8 flex flex-col flex-1">
-              <span class="inline-flex w-fit items-center gap-2 rounded-full bg-conf/10 text-confdark px-3 py-1 text-xs font-semibold">BEST-SELLER</span>
-              <h3 class="mt-4 text-xl sm:text-2xl font-bold">Le Rapport Unifié 2026-2027</h3>
-              <p class="mt-3 text-slate-600">Le guide qui ouvre les portes : <strong class="text-nuit">65 bourses d'élite</strong>, des lettres qui marquent les jurys, et la stratégie complète pour décrocher votre admission cette année.</p>
-
-              <ul class="mt-5 space-y-2.5 text-sm text-slate-700" role="list">
-                <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> <strong>65 bourses d'élite</strong> triées et prêtes à postuler</li>
-                <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> <strong>5 modèles de lettres</strong> qui captivent les jurys</li>
-                <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> La checklist admission qui vous évite les erreurs fatales</li>
-                <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> Volet handicap : frais spécifiques <strong>entièrement pris en charge</strong></li>
-              </ul>
-
-              <div class="mt-6 pt-5 border-t border-slate-100 flex items-end justify-between gap-4">
-                <div>
-                  <span class="text-xs text-slate-400">Livraison immédiate</span>
-                  <p class="text-2xl font-extrabold text-nuit">Disponible maintenant</p>
+            <div class="p-7 sm:p-8 flex flex-col sm:flex-row gap-6 flex-1">
+              <!-- Mockup du guide -->
+              <div class="hidden sm:flex shrink-0 items-start">
+                <div class="book w-28 h-36 rounded-r-lg rounded-l-sm bg-gradient-to-br from-nuit to-nuit2 border border-or/40 p-3 flex flex-col justify-between">
+                  <span class="text-[9px] font-bold text-or tracking-widest">RAPPORT</span>
+                  <div>
+                    <span class="block text-[10px] text-slate-300">Unifié</span>
+                    <span class="block text-2xl font-extrabold text-white leading-none">2026<br>2027</span>
+                  </div>
+                  <span class="text-[9px] text-conf font-semibold">CEDEAO • UEMOA</span>
                 </div>
               </div>
 
-              <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
-                 class="mt-6 inline-flex items-center justify-center gap-2 bg-conf hover:bg-confdark text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-lg shadow-conf/25">
-                Obtenir mon Guide maintenant <span aria-hidden="true">↗</span>
-              </a>
+              <div class="flex flex-col flex-1">
+                <span class="inline-flex w-fit items-center gap-2 rounded-full bg-conf/10 text-confdark px-3 py-1 text-xs font-semibold">BEST-SELLER</span>
+                <h3 class="mt-4 text-xl sm:text-2xl font-bold">Le Rapport Unifié 2026-2027</h3>
+                <p class="mt-3 text-slate-600">Le guide qui ouvre les portes : <strong class="text-nuit">65 bourses d'élite</strong>, des lettres qui marquent les jurys, et la stratégie complète pour décrocher votre admission cette année.</p>
+
+                <ul class="mt-5 space-y-2.5 text-sm text-slate-700" role="list">
+                  <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> <strong>65 bourses d'élite</strong> triées et prêtes à postuler</li>
+                  <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> <strong>5 modèles de lettres</strong> qui captivent les jurys</li>
+                  <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> La checklist admission qui vous évite les erreurs fatales</li>
+                  <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> Volet handicap : frais spécifiques <strong>entièrement pris en charge</strong></li>
+                </ul>
+
+                <!-- Prix ancré -->
+                <div class="mt-6 pt-5 border-t border-slate-100">
+                  <div class="flex items-end gap-3">
+                    <span class="text-3xl font-extrabold text-nuit">29 €</span>
+                    <span class="text-base text-slate-400 line-through mb-0.5">49 €</span>
+                    <span class="mb-1 rounded-md bg-conf/15 text-confdark text-xs font-bold px-2 py-0.5">−40%</span>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-1">Livraison immédiate • Accès à vie</p>
+                </div>
+
+                <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
+                   class="mt-5 inline-flex items-center justify-center gap-2 bg-conf hover:bg-confdark text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-lg shadow-conf/25">
+                  Obtenir mon Guide maintenant <span aria-hidden="true">↗</span>
+                </a>
+                <p class="mt-3 text-xs text-slate-500 flex items-center gap-1.5">
+                  <svg class="h-4 w-4 text-conf" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                  Garantie satisfait ou remboursé sous 14 jours
+                </p>
+              </div>
             </div>
           </article>
 
@@ -224,14 +265,22 @@
               </ul>
 
               <div class="mt-6 pt-5 border-t border-slate-100">
-                <span class="text-xs text-slate-400">Format exclusif</span>
-                <p class="text-lg font-bold text-nuit">Visio individuelle, en direct avec votre conseiller</p>
+                <div class="flex items-end gap-3">
+                  <span class="text-3xl font-extrabold text-nuit">79 €</span>
+                  <span class="text-base text-slate-400 line-through mb-0.5">120 €</span>
+                  <span class="mb-1 rounded-md bg-or/20 text-[#9a7b1f] text-xs font-bold px-2 py-0.5">−34%</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-1">Visio individuelle de 45 min, en direct avec votre conseiller</p>
               </div>
 
               <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
-                 class="mt-6 inline-flex items-center justify-center gap-2 bg-nuit hover:bg-nuit2 text-white font-semibold px-6 py-3 rounded-xl transition-colors">
+                 class="mt-5 inline-flex items-center justify-center gap-2 bg-nuit hover:bg-nuit2 text-white font-semibold px-6 py-3 rounded-xl transition-colors">
                 Réserver mon coaching <span aria-hidden="true">↗</span>
               </a>
+              <p class="mt-3 text-xs text-slate-500 flex items-center gap-1.5">
+                <span class="live-dot h-2 w-2 rounded-full bg-or" aria-hidden="true"></span>
+                Places limitées pour la promotion 2026-2027
+              </p>
             </div>
           </article>
 
@@ -239,12 +288,86 @@
       </div>
     </section>
 
+    <!-- ====================== COMMENT ÇA MARCHE ====================== -->
+    <section id="etapes" class="bg-nuit2 border-y border-slate-700/60" aria-labelledby="etapes-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 id="etapes-title" class="text-2xl sm:text-4xl font-extrabold tracking-tight">Votre admission en 3 étapes</h2>
+          <p class="mt-4 text-slate-300">Un chemin simple et guidé, du premier clic à la soumission de votre candidature.</p>
+        </div>
+
+        <ol class="mt-12 grid gap-6 md:grid-cols-3">
+          <li class="relative rounded-2xl bg-nuit border border-slate-700 p-7">
+            <span class="absolute -top-4 left-7 inline-flex h-9 w-9 items-center justify-center rounded-full bg-conf text-white font-extrabold" aria-hidden="true">1</span>
+            <h3 class="mt-2 text-lg font-bold">Obtenez le guide</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">Accédez en quelques minutes aux 65 bourses d'élite, aux modèles de lettres et à la méthode complète.</p>
+          </li>
+          <li class="relative rounded-2xl bg-nuit border border-slate-700 p-7">
+            <span class="absolute -top-4 left-7 inline-flex h-9 w-9 items-center justify-center rounded-full bg-or text-nuit font-extrabold" aria-hidden="true">2</span>
+            <h3 class="mt-2 text-lg font-bold">Construisez votre dossier</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">Suivez la stratégie, assemblez un dossier irréprochable. Option coaching pour un suivi personnalisé.</p>
+          </li>
+          <li class="relative rounded-2xl bg-nuit border border-slate-700 p-7">
+            <span class="absolute -top-4 left-7 inline-flex h-9 w-9 items-center justify-center rounded-full bg-conf text-white font-extrabold" aria-hidden="true">3</span>
+            <h3 class="mt-2 text-lg font-bold">Postulez &amp; décrochez</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">Soumettez vos candidatures aux bonnes bourses, au bon moment, et faites valoir votre éligibilité.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====================== PREUVE SOCIALE / TÉMOIGNAGES ====================== -->
+    <!-- ⚠️ TÉMOIGNAGES EXEMPLAIRES : remplacer par de VRAIS témoignages clients avant partage -->
+    <section id="temoignages" class="bg-slate-50 text-nuit" aria-labelledby="tem-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 id="tem-title" class="text-2xl sm:text-4xl font-extrabold tracking-tight">Ils ont décroché leur bourse</h2>
+          <p class="mt-4 text-slate-600">Des étudiants de la zone CEDEAO/UEMOA qui ont transformé leur projet en admission concrète.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <figure class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div class="flex gap-1 text-or" aria-label="5 étoiles sur 5">
+              <span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+            </div>
+            <blockquote class="mt-3 text-sm text-slate-700 leading-relaxed">« Le guide m'a permis de cibler 4 bourses éligibles en une semaine. J'ai décroché une bourse pour mon Master en France. »</blockquote>
+            <figcaption class="mt-4 flex items-center gap-3">
+              <span class="h-10 w-10 rounded-full bg-conf text-white flex items-center justify-center font-bold" aria-hidden="true">AD</span>
+              <span><span class="block font-semibold text-sm">Aïssatou D.</span><span class="block text-xs text-slate-500">Sénégal • Master</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div class="flex gap-1 text-or" aria-label="5 étoiles sur 5">
+              <span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+            </div>
+            <blockquote class="mt-3 text-sm text-slate-700 leading-relaxed">« L'accompagnement a transformé ma lettre de motivation. Deux universités m'ont répondu favorablement pour mon doctorat. »</blockquote>
+            <figcaption class="mt-4 flex items-center gap-3">
+              <span class="h-10 w-10 rounded-full bg-or text-nuit flex items-center justify-center font-bold" aria-hidden="true">IT</span>
+              <span><span class="block font-semibold text-sm">Ibrahim T.</span><span class="block text-xs text-slate-500">Mali • Doctorat</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div class="flex gap-1 text-or" aria-label="5 étoiles sur 5">
+              <span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+            </div>
+            <blockquote class="mt-3 text-sm text-slate-700 leading-relaxed">« En situation de handicap, je pensais ne jamais étudier à l'étranger. Le volet handicap m'a tout expliqué : tout est pris en charge. »</blockquote>
+            <figcaption class="mt-4 flex items-center gap-3">
+              <span class="h-10 w-10 rounded-full bg-nuit3 text-white flex items-center justify-center font-bold" aria-hidden="true">FB</span>
+              <span><span class="block font-semibold text-sm">Fatou B.</span><span class="block text-xs text-slate-500">Côte d'Ivoire • Licence</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <!-- ====================== RASSURANCE & INCLUSIVITÉ ====================== -->
     <section id="anti-arnaque" class="bg-nuit2 border-y border-slate-700/60" aria-labelledby="engagement-title">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+        <h2 id="engagement-title" class="sr-only">Nos garanties</h2>
         <div class="grid gap-8 md:grid-cols-2 items-start">
 
-          <!-- Rassurance confiance -->
           <div id="anti" class="rounded-2xl bg-nuit border border-slate-700 p-6 sm:p-7">
             <div class="flex items-center gap-3">
               <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-conf/15 text-conf" aria-hidden="true">
@@ -255,7 +378,6 @@
             <p class="mt-3 text-slate-300 text-sm leading-relaxed">Chaque bourse du guide est sourcée directement auprès de l'institution officielle. Vous postulez l'esprit tranquille, en toute légitimité, sans intermédiaire.</p>
           </div>
 
-          <!-- Bloc Handicap / Inclusivité -->
           <div id="inclusivite" class="rounded-2xl bg-nuit border border-slate-700 p-6 sm:p-7">
             <div class="flex items-center gap-3">
               <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-or/15 text-or" aria-hidden="true">
@@ -270,85 +392,129 @@
       </div>
     </section>
 
+    <!-- ====================== FAQ ====================== -->
+    <section id="faq" class="bg-slate-50 text-nuit" aria-labelledby="faq-title">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div class="text-center">
+          <h2 id="faq-title" class="text-2xl sm:text-4xl font-extrabold tracking-tight">Questions fréquentes</h2>
+          <p class="mt-4 text-slate-600">Tout ce qu'il faut savoir avant de vous lancer.</p>
+        </div>
+
+        <div class="mt-10 space-y-3">
+          <details class="group bg-white rounded-xl border border-slate-200 p-5">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-nuit">
+              Pour quels niveaux d'études le guide convient-il ?
+              <svg class="faq-chev h-5 w-5 text-conf shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">Le guide couvre la Licence (à partir de L3), le Master et le Doctorat. Chaque bourse indique clairement les niveaux éligibles pour que vous cibliez uniquement ce qui vous correspond.</p>
+          </details>
+
+          <details class="group bg-white rounded-xl border border-slate-200 p-5">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-nuit">
+              Je suis en situation de handicap, est-ce vraiment pris en charge ?
+              <svg class="faq-chev h-5 w-5 text-conf shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">Oui, à 100%. Bourses dédiées, accessibilité par pays, et frais spécifiques (accompagnateur, matériel adapté, transport spécialisé) couverts dès lors qu'ils sont éligibles au programme.</p>
+          </details>
+
+          <details class="group bg-white rounded-xl border border-slate-200 p-5">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-nuit">
+              Le guide fonctionne-t-il hors de la zone CEDEAO/UEMOA ?
+              <svg class="faq-chev h-5 w-5 text-conf shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">Les bourses listées ciblent les ressortissants CEDEAO/UEMOA, mais la méthode de candidature s'applique à tout profil. Écrivez-nous pour vérifier votre éligibilité.</p>
+          </details>
+
+          <details class="group bg-white rounded-xl border border-slate-200 p-5">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-nuit">
+              Combien de temps pour recevoir le guide ?
+              <svg class="faq-chev h-5 w-5 text-conf shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">L'accès est immédiat après votre commande sur la boutique sécurisée. Vous pouvez commencer à postuler le jour même.</p>
+          </details>
+
+          <details class="group bg-white rounded-xl border border-slate-200 p-5">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-nuit">
+              Et si le guide ne me convient pas ?
+              <svg class="faq-chev h-5 w-5 text-conf shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">Garantie satisfait ou remboursé sous 14 jours, sans justification. Vous prenez zéro risque en testant la méthode.</p>
+          </details>
+
+          <details class="group bg-white rounded-xl border border-slate-200 p-5">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-nuit">
+              Comment se déroule l'accompagnement personnalisé ?
+              <svg class="faq-chev h-5 w-5 text-conf shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">Une visio individuelle de 45 minutes en direct avec votre conseiller : audit de profil, construction du plan de candidature et suivi jusqu'à la soumission de vos dossiers.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ====================== CONTACT DIRECT ====================== -->
-    <section id="contact" class="bg-slate-50 text-nuit" aria-labelledby="contact-title">
+    <section id="contact" class="bg-nuit2 border-y border-slate-700/60 text-slate-100" aria-labelledby="contact-title">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div class="text-center">
           <h2 id="contact-title" class="text-2xl sm:text-4xl font-extrabold tracking-tight">Parlons de votre projet</h2>
-          <p class="mt-4 text-slate-600">Prêt à passer à l'action ? Décrivez votre situation en quelques lignes : un conseiller vous répond et oriente vos prochaines étapes. Vous pouvez aussi nous écrire directement sur WhatsApp.</p>
+          <p class="mt-4 text-slate-300">Prêt à passer à l'action ? Décrivez votre situation en quelques lignes : un conseiller vous répond et oriente vos prochaines étapes. Vous pouvez aussi nous écrire directement sur WhatsApp.</p>
         </div>
 
-        <!-- Formulaire vitrine (ne stocke rien : redirige/mailto) -->
-        <form class="mt-10 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-5"
+        <form class="mt-10 bg-nuit rounded-2xl border border-slate-700 p-6 sm:p-8 space-y-5"
               action="mailto:gandaletfamou42632@gmail.com" method="post" enctype="text/plain" aria-label="Formulaire de contact">
           <div class="grid gap-5 sm:grid-cols-2">
             <div>
-              <label for="nom" class="block text-sm font-semibold text-slate-700">Nom complet <span class="text-conf" aria-hidden="true">*</span></label>
+              <label for="nom" class="block text-sm font-semibold text-slate-200">Nom complet <span class="text-conf" aria-hidden="true">*</span></label>
               <input id="nom" name="nom" type="text" required autocomplete="name"
-                     class="mt-1.5 w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none" />
+                     class="mt-1.5 w-full rounded-lg border border-slate-600 bg-nuit2 px-3.5 py-2.5 text-white placeholder-slate-500 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none" />
             </div>
             <div>
-              <label for="email" class="block text-sm font-semibold text-slate-700">Email <span class="text-conf" aria-hidden="true">*</span></label>
+              <label for="email" class="block text-sm font-semibold text-slate-200">Email <span class="text-conf" aria-hidden="true">*</span></label>
               <input id="email" name="email" type="email" required autocomplete="email"
-                     class="mt-1.5 w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none" />
+                     class="mt-1.5 w-full rounded-lg border border-slate-600 bg-nuit2 px-3.5 py-2.5 text-white placeholder-slate-500 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none" />
             </div>
           </div>
 
           <div>
-            <label for="pays" class="block text-sm font-semibold text-slate-700">Pays CEDEAO/UEMOA</label>
+            <label for="pays" class="block text-sm font-semibold text-slate-200">Pays CEDEAO/UEMOA</label>
             <select id="pays" name="pays"
-                    class="mt-1.5 w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none">
+                    class="mt-1.5 w-full rounded-lg border border-slate-600 bg-nuit2 px-3.5 py-2.5 text-white focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none">
               <option value="">— Sélectionnez votre pays —</option>
-              <option>Sénégal</option>
-              <option>Côte d'Ivoire</option>
-              <option>Mali</option>
-              <option>Burkina Faso</option>
-              <option>Guinée</option>
-              <option>Bénin</option>
-              <option>Togo</option>
-              <option>Niger</option>
-              <option>Cap-Vert</option>
-              <option>Gambie</option>
-              <option>Ghana</option>
-              <option>Nigeria</option>
-              <option>Liberia</option>
-              <option>Sierra Leone</option>
-              <option>Mauritanie</option>
-              <option>Guinée-Bissau</option>
-              <option>Autre / Hors zone</option>
+              <option>Sénégal</option><option>Côte d'Ivoire</option><option>Mali</option>
+              <option>Burkina Faso</option><option>Guinée</option><option>Bénin</option>
+              <option>Togo</option><option>Niger</option><option>Cap-Vert</option>
+              <option>Gambie</option><option>Ghana</option><option>Nigeria</option>
+              <option>Liberia</option><option>Sierra Leone</option><option>Mauritanie</option>
+              <option>Guinée-Bissau</option><option>Autre / Hors zone</option>
             </select>
           </div>
 
           <div>
-            <label for="message" class="block text-sm font-semibold text-slate-700">Message <span class="text-conf" aria-hidden="true">*</span></label>
+            <label for="message" class="block text-sm font-semibold text-slate-200">Message <span class="text-conf" aria-hidden="true">*</span></label>
             <textarea id="message" name="message" rows="4" required
-                      class="mt-1.5 w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none"
+                      class="mt-1.5 w-full rounded-lg border border-slate-600 bg-nuit2 px-3.5 py-2.5 text-white placeholder-slate-500 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none"
                       placeholder="Décrivez votre situation, la bourse visée ou votre question…"></textarea>
           </div>
 
           <div class="flex flex-col sm:flex-row items-center gap-3">
             <button type="submit"
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-conf hover:bg-confdark text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-lg shadow-conf/25">
-              Envoyer le message
-              <span aria-hidden="true">→</span>
+              Envoyer le message <span aria-hidden="true">→</span>
             </button>
             <a href="https://wa.me/447529620931?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20les%20bourses%20CEDEAO" target="_blank" rel="noopener noreferrer"
                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1eb555] text-white font-semibold px-6 py-3 rounded-xl transition-colors">
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.738-.981z"/></svg>
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
               Contacter sur WhatsApp
             </a>
           </div>
           <p class="text-xs text-slate-400">Réponse garantie sous 24h. Vos informations restent strictement confidentielles.</p>
 
-          <!-- Coordonnées directes -->
-          <div class="mt-6 pt-5 border-t border-slate-100 grid gap-3 sm:grid-cols-2 text-sm">
-            <a href="mailto:gandaletfamou42632@gmail.com"
-               class="inline-flex items-center gap-2 text-slate-700 hover:text-confdark font-medium">
+          <div class="mt-2 pt-5 border-t border-slate-700 grid gap-3 sm:grid-cols-2 text-sm">
+            <a href="mailto:gandaletfamou42632@gmail.com" class="inline-flex items-center gap-2 text-slate-200 hover:text-orlight font-medium">
               <svg class="h-5 w-5 text-conf" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               gandaletfamou42632@gmail.com
             </a>
-            <a href="https://wa.me/447529620931" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 text-slate-700 hover:text-confdark font-medium">
+            <a href="https://wa.me/447529620931" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-slate-200 hover:text-orlight font-medium">
               <svg class="h-5 w-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
               WhatsApp : +44 7529 620931
             </a>
@@ -407,6 +573,14 @@
     </div>
   </footer>
 
+  <!-- ====================== BOUTON WHATSAPP FLOTTANT ====================== -->
+  <a href="https://wa.me/447529620931?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20les%20bourses%20CEDEAO" target="_blank" rel="noopener noreferrer"
+     class="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center h-14 w-14 rounded-full bg-[#25D366] hover:bg-[#1eb555] shadow-2xl shadow-black/40"
+     aria-label="Contacter sur WhatsApp">
+    <svg class="h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.738-.981z"/></svg>
+    <span class="absolute -top-1 -right-1 flex h-4 w-4"><span class="live-dot h-4 w-4 rounded-full bg-or opacity-75"></span></span>
+  </a>
+
   <!-- ====================== SCRIPT NAV MOBILE ====================== -->
   <script>
     (function () {
@@ -417,7 +591,6 @@
         const open = menu.classList.toggle('hidden') === false;
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
-      // Ferme le menu mobile après clic sur un lien
       menu.querySelectorAll('a').forEach(function (a) {
         a.addEventListener('click', function () {
           menu.classList.add('hidden');
