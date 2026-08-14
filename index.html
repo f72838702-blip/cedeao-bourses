@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plateforme d'orientation académique et bourses d'études vérifiées pour la zone CEDEAO/UEMOA. 65 bourses, 22 destinations, volet handicap 100% pris en charge, guides anti-fraude." />
+  <meta name="theme-color" content="#0f172a" />
+  <title>CEDEAO Bourses — Orientation académique & bourses vérifiées 2026-2027</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nuit: '#0f172a',
+            nuit2: '#1e293b',
+            nuit3: '#334155',
+            conf: '#059669',
+            confdark: '#047857',
+            or: '#d4af37',
+            orlight: '#e6c655',
+          },
+          fontFamily: {
+            sans: ['Inter', 'Segoe UI', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Police Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    /* Contraste élevé / focus visible (WCAG) */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 3px solid #d4af37;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    .skip-link { position: absolute; left: -9999px; top: auto; }
+    .skip-link:focus { left: 8px; top: 8px; z-index: 100; background: #fff; color: #0f172a; padding: 8px 14px; border-radius: 6px; }
+    .hero-grid {
+      background-image: radial-gradient(rgba(212,175,55,0.10) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+  </style>
+</head>
+
+<body class="bg-nuit text-slate-100 antialiased">
+
+  <!-- Lien d'évitement (accessibilité) -->
+  <a href="#contenu" class="skip-link">Aller au contenu principal</a>
+
+  <!-- ====================== NAVBAR ====================== -->
+  <header class="sticky top-0 z-50 bg-nuit/95 backdrop-blur border-b border-slate-700/60">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Nom -->
+        <a href="#" class="flex items-center gap-2.5 shrink-0" aria-label="Accueil CEDEAO Bourses">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-conf text-white font-extrabold shadow-lg shadow-conf/30" aria-hidden="true">C</span>
+          <span class="font-bold text-lg tracking-tight">
+            CEDEAO<span class="text-conf"> Bourses</span>
+          </span>
+        </a>
+
+        <!-- Liens desktop -->
+        <ul class="hidden lg:flex items-center gap-7 text-sm font-medium">
+          <li><a href="#guide" class="hover:text-orlight transition-colors">Le Guide 2026-2027</a></li>
+          <li><a href="#inclusivite" class="hover:text-orlight transition-colors">Inclusivité &amp; Handicap</a></li>
+          <li><a href="#anti-arnaque" class="hover:text-orlight transition-colors">Anti-Arnaque</a></li>
+          <li><a href="#contact" class="hover:text-orlight transition-colors">Contact</a></li>
+        </ul>
+
+        <!-- CTA + burger -->
+        <div class="flex items-center gap-3">
+          <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
+             class="hidden sm:inline-flex items-center gap-1.5 bg-conf hover:bg-confdark text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors shadow-lg shadow-conf/25">
+            Boutique Officielle
+            <span aria-hidden="true">↗</span>
+          </a>
+          <button id="menu-btn" type="button" class="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-slate-600 text-slate-200"
+                  aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu mobile -->
+      <div id="menu-mobile" class="hidden lg:hidden pb-4 border-t border-slate-700/60">
+        <ul class="flex flex-col gap-1 pt-3 text-sm font-medium">
+          <li><a href="#guide" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">Le Guide 2026-2027</a></li>
+          <li><a href="#inclusivite" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">Inclusivité &amp; Handicap</a></li>
+          <li><a href="#anti-arnaque" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">Anti-Arnaque</a></li>
+          <li><a href="#contact" class="block px-2 py-2.5 rounded-lg hover:bg-nuit2">Contact</a></li>
+          <li class="pt-2">
+            <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
+               class="inline-flex w-full justify-center items-center gap-1.5 bg-conf hover:bg-confdark text-white font-semibold px-4 py-2.5 rounded-lg">
+              Boutique Officielle <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ====================== HERO ====================== -->
+    <section class="relative hero-grid overflow-hidden" aria-labelledby="hero-title">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-nuit2/40 via-nuit to-nuit"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32 text-center">
+
+        <!-- Badge -->
+        <span class="inline-flex items-center gap-2 rounded-full bg-or/10 text-or border border-or/40 px-4 py-1.5 text-xs sm:text-sm font-semibold tracking-wide">
+          <span class="h-2 w-2 rounded-full bg-or" aria-hidden="true"></span>
+          Édition Officielle CEDEAO 2026-2027
+        </span>
+
+        <!-- H1 -->
+        <h1 id="hero-title" class="mt-6 text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+          Accédez aux <span class="text-conf">Bourses Internationales Vérifiées</span><br class="hidden sm:block" />
+          sans Intermédiaire
+        </h1>
+
+        <!-- Sous-titre -->
+        <p class="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed">
+          Un accompagnement direct et transparent pour les étudiants de la zone CEDEAO/UEMOA.
+          <span class="font-semibold text-white">65 bourses</span>,
+          <span class="font-semibold text-white">22 destinations</span>,
+          volet <span class="font-semibold text-orlight">handicap pris en charge à 100%</span>,
+          et des <span class="font-semibold text-white">guides anti-fraude</span> pour vous protéger.
+        </p>
+
+        <!-- Boutons -->
+        <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
+             class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-conf hover:bg-confdark text-white font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-xl shadow-conf/25">
+            Obtenir le Guide sur la Boutique
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="#contact"
+             class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border border-slate-500 hover:border-or hover:text-orlight text-slate-100 font-semibold px-7 py-3.5 rounded-xl transition-colors">
+            Poser une question (Contact)
+          </a>
+        </div>
+
+        <!-- Mini stats -->
+        <dl class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto">
+          <div class="text-center">
+            <dt class="text-3xl font-extrabold text-or">65</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Bourses répertoriées</dd>
+          </div>
+          <div class="text-center">
+            <dt class="text-3xl font-extrabold text-or">22</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Destinations</dd>
+          </div>
+          <div class="text-center">
+            <dt class="text-3xl font-extrabold text-or">100%</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Volet handicap</dd>
+          </div>
+          <div class="text-center">
+            <dt class="text-3xl font-extrabold text-or">10</dt><dd class="text-xs sm:text-sm text-slate-400 mt-1">Pièges d'arnaques évités</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ====================== CARTES DE REDIRECTION ====================== -->
+    <section id="guide" class="bg-slate-50 text-nuit" aria-labelledby="offres-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 id="offres-title" class="text-2xl sm:text-4xl font-extrabold tracking-tight">Nos offres &amp; services</h2>
+          <p class="mt-4 text-slate-600">Deux solutions complémentaires pour accéder aux bourses en toute sécurité, sans intermédiaire douteux.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-2">
+
+          <!-- Carte 1 : Rapport Unifié -->
+          <article class="relative flex flex-col bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="h-1.5 bg-gradient-to-r from-conf to-or" aria-hidden="true"></div>
+            <div class="p-7 sm:p-8 flex flex-col flex-1">
+              <span class="inline-flex w-fit items-center gap-2 rounded-full bg-conf/10 text-confdark px-3 py-1 text-xs font-semibold">RAPPORT DIGITAL</span>
+              <h3 class="mt-4 text-xl sm:text-2xl font-bold">Le Rapport Unifié 2026-2027</h3>
+              <p class="mt-3 text-slate-600">Le guide de référence rassemblant bourses vérifiées, modèles de candidature et alertes anti-fraude en un seul document.</p>
+
+              <ul class="mt-5 space-y-2.5 text-sm text-slate-700" role="list">
+                <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> 65 bourses internationales vérifiées</li>
+                <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> 10 pièges d'arnaques évités (méthodes détaillées)</li>
+                <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> 5 modèles de lettres de motivation prêts à l'emploi</li>
+                <li class="flex gap-2.5"><span class="text-conf font-bold" aria-hidden="true">✓</span> Volet handicap détaillé (frais spécifiques pris en charge)</li>
+              </ul>
+
+              <div class="mt-6 pt-5 border-t border-slate-100 flex items-end justify-between gap-4">
+                <div>
+                  <span class="text-xs text-slate-400">Valeur du guide</span>
+                  <p class="text-2xl font-extrabold text-nuit">À découvrir en boutique</p>
+                </div>
+              </div>
+
+              <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
+                 class="mt-6 inline-flex items-center justify-center gap-2 bg-conf hover:bg-confdark text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-lg shadow-conf/25">
+                Acheter sur la Boutique <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Carte 2 : Accompagnement -->
+          <article class="relative flex flex-col bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="h-1.5 bg-gradient-to-r from-or to-conf" aria-hidden="true"></div>
+            <div class="p-7 sm:p-8 flex flex-col flex-1">
+              <span class="inline-flex w-fit items-center gap-2 rounded-full bg-or/15 text-[#9a7b1f] px-3 py-1 text-xs font-semibold">ACCOMPAGNEMENT</span>
+              <h3 class="mt-4 text-xl sm:text-2xl font-bold">Accompagnement &amp; Candidature</h3>
+              <p class="mt-3 text-slate-600">Une session d'orientation sur-mesure pour choisir les bonnes bourses, structurer votre dossier et maximiser vos chances d'admission.</p>
+
+              <ul class="mt-5 space-y-2.5 text-sm text-slate-700" role="list">
+                <li class="flex gap-2.5"><span class="text-or font-bold" aria-hidden="true">✓</span> Analyse de votre profil et des bourses éligibles</li>
+                <li class="flex gap-2.5"><span class="text-or font-bold" aria-hidden="true">✓</span> Revue de lettre de motivation &amp; CV académique</li>
+                <li class="flex gap-2.5"><span class="text-or font-bold" aria-hidden="true">✓</span> Plan de candidature personnalisé par destination</li>
+                <li class="flex gap-2.5"><span class="text-or font-bold" aria-hidden="true">✓</span> Suivi dédié (étudiants en situation de handicap inclus)</li>
+              </ul>
+
+              <div class="mt-6 pt-5 border-t border-slate-100">
+                <span class="text-xs text-slate-400">Format</span>
+                <p class="text-lg font-bold text-nuit">Session individuelle en visio</p>
+              </div>
+
+              <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
+                 class="mt-6 inline-flex items-center justify-center gap-2 bg-nuit hover:bg-nuit2 text-white font-semibold px-6 py-3 rounded-xl transition-colors">
+                Réserver un créneau <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== ENGAGEMENT & PRÉVENTION ====================== -->
+    <section id="anti-arnaque" class="bg-nuit2 border-y border-slate-700/60" aria-labelledby="engagement-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 id="engagement-title" class="text-2xl sm:text-4xl font-extrabold tracking-tight">Engagement &amp; prévention</h2>
+          <p class="mt-4 text-slate-300">Notre mission : protéger les étudiants contre la fraude et garantir l'accès aux bourses pour tous, y compris les personnes en situation de handicap.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+
+          <!-- Bloc Anti-Arnaque -->
+          <div id="anti" class="rounded-2xl bg-nuit border border-slate-700 p-7 sm:p-8">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-conf/15 text-conf" aria-hidden="true">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 4.5-3.2 8.5-8 9-4.8-.5-8-4.5-8-9V7l8-4z"/></svg>
+              </span>
+              <h3 class="text-xl font-bold">Vérification anti-arnaque</h3>
+            </div>
+            <p class="mt-4 text-slate-300">Chaque bourse du guide est <strong class="text-white">vérifiée</strong> auprès de l'institution ou de l'ambassade émettrice. Nous recensons les <strong class="text-white">10 pièges les plus courants</strong> (frais d'avance, faux intermédiaires, sites clones) et vous fournissons une méthode claire pour les détecter.</p>
+            <p class="mt-3 text-sm text-slate-400">Règle d'or : aucune bourse authentique ne réclame des frais de dossier payables à un particulier. En cas de doute, contactez-nous avant tout paiement.</p>
+          </div>
+
+          <!-- Bloc Handicap / Inclusivité -->
+          <div id="inclusivite" class="rounded-2xl bg-nuit border border-slate-700 p-7 sm:p-8">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-or/15 text-or" aria-hidden="true">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0V3m-9 9h18"/></svg>
+              </span>
+              <h3 class="text-xl font-bold">Inclusivité &amp; handicap</h3>
+            </div>
+            <p class="mt-4 text-slate-300">Le volet <strong class="text-orlight">handicap est pris en charge à 100%</strong> dans notre guide : bourses dédiées, dispositifs d'accessibilité par pays, et <strong class="text-white">frais spécifiques couverts</strong> (accompagnateur, matériel adapté, transport spécialisé) dès lors qu'ils sont éligibles au programme.</p>
+            <p class="mt-3 text-sm text-slate-400">Notre accompagnement est conçu pour ne laisser aucun étudiant de la zone CEDEAO/UEMOA sur le côté pour des raisons d'accessibilité.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONTACT DIRECT ====================== -->
+    <section id="contact" class="bg-slate-50 text-nuit" aria-labelledby="contact-title">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div class="text-center">
+          <h2 id="contact-title" class="text-2xl sm:text-4xl font-extrabold tracking-tight">Contact direct</h2>
+          <p class="mt-4 text-slate-600">Une question sur une bourse, un doute sur une offre, un besoin d'orientation ? Écrivez-nous ou contactez-nous directement sur WhatsApp.</p>
+        </div>
+
+        <!-- Formulaire vitrine (ne stocke rien : redirige/mailto) -->
+        <form class="mt-10 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-5"
+              action="mailto:contact@cedeao-bourses.org" method="post" enctype="text/plain" aria-label="Formulaire de contact">
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="nom" class="block text-sm font-semibold text-slate-700">Nom complet <span class="text-conf" aria-hidden="true">*</span></label>
+              <input id="nom" name="nom" type="text" required autocomplete="name"
+                     class="mt-1.5 w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-semibold text-slate-700">Email <span class="text-conf" aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email"
+                     class="mt-1.5 w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label for="pays" class="block text-sm font-semibold text-slate-700">Pays CEDEAO/UEMOA</label>
+            <select id="pays" name="pays"
+                    class="mt-1.5 w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none">
+              <option value="">— Sélectionnez votre pays —</option>
+              <option>Sénégal</option>
+              <option>Côte d'Ivoire</option>
+              <option>Mali</option>
+              <option>Burkina Faso</option>
+              <option>Guinée</option>
+              <option>Bénin</option>
+              <option>Togo</option>
+              <option>Niger</option>
+              <option>Cap-Vert</option>
+              <option>Gambie</option>
+              <option>Ghana</option>
+              <option>Nigeria</option>
+              <option>Liberia</option>
+              <option>Sierra Leone</option>
+              <option>Mauritanie</option>
+              <option>Guinée-Bissau</option>
+              <option>Autre / Hors zone</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-semibold text-slate-700">Message <span class="text-conf" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="4" required
+                      class="mt-1.5 w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 focus:border-conf focus:ring-2 focus:ring-conf/30 outline-none"
+                      placeholder="Décrivez votre situation, la bourse visée ou votre question…"></textarea>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center gap-3">
+            <button type="submit"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-conf hover:bg-confdark text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-lg shadow-conf/25">
+              Envoyer le message
+              <span aria-hidden="true">→</span>
+            </button>
+            <a href="https://wa.me/221000000000?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20les%20bourses%20CEDEAO" target="_blank" rel="noopener noreferrer"
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1eb555] text-white font-semibold px-6 py-3 rounded-xl transition-colors">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.738-.981z"/></svg>
+              Contacter sur WhatsApp
+            </a>
+          </div>
+          <p class="text-xs text-slate-400">Ce formulaire est un vitrine. Vos données ne sont pas stockées sur ce site.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="bg-nuit border-t border-slate-800 text-slate-400" aria-labelledby="footer-title">
+    <h2 id="footer-title" class="sr-only">Pied de page</h2>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid gap-8 md:grid-cols-3">
+
+        <div>
+          <a href="#" class="flex items-center gap-2.5">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-conf text-white font-extrabold" aria-hidden="true">C</span>
+            <span class="font-bold text-lg text-white">CEDEAO<span class="text-conf"> Bourses</span></span>
+          </a>
+          <p class="mt-4 text-sm leading-relaxed">Orientation académique et bourses vérifiées pour la zone CEDEAO/UEMOA. Édition 2026-2027.</p>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-semibold text-white uppercase tracking-wider">Avertissement anti-fraude</h3>
+          <p class="mt-4 text-sm leading-relaxed">
+            <strong class="text-orlight">⚠️ Attention :</strong> aucune bourse authentique ne demande de frais de dossier versés à un particulier.
+            Méfiez-vous des intermédiaires non officiels, des sites clones et des offres « garanties » contre paiement.
+            En cas de doute, <a href="#contact" class="text-conf hover:underline">contactez-nous</a> avant tout transfert d'argent.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-semibold text-white uppercase tracking-wider">Achats sécurisés</h3>
+          <p class="mt-4 text-sm leading-relaxed">
+            Tous les achats (rapport, accompagnement) s'effectuent <strong class="text-white">exclusivement</strong> sur notre plateforme partenaire sécurisée.
+            Ce site vitrine ne propose <strong class="text-white">aucun fichier téléchargeable directement</strong>.
+          </p>
+          <a href="https://cedeao.systeme.io" target="_blank" rel="noopener noreferrer"
+             class="mt-4 inline-flex items-center gap-1.5 text-conf hover:text-orlight font-semibold text-sm">
+            Accéder à la Boutique Officielle <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-10 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <p>© 2026 CEDEAO Bourses. Tous droits réservés.</p>
+        <nav aria-label="Mentions légales" class="flex gap-4">
+          <a href="#" class="hover:text-slate-300">Mentions légales</a>
+          <a href="#" class="hover:text-slate-300">Politique de confidentialité</a>
+          <a href="#" class="hover:text-slate-300">CGV</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================== SCRIPT NAV MOBILE ====================== -->
+  <script>
+    (function () {
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('menu-mobile');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        const open = menu.classList.toggle('hidden') === false;
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      // Ferme le menu mobile après clic sur un lien
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          menu.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
