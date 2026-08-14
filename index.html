@@ -130,6 +130,11 @@
 
   <main id="contenu">
 
+    <!-- Message de remerciement (après envoi du formulaire) -->
+    <div id="merci" class="hidden bg-conf text-white text-center text-sm font-semibold py-3 px-4">
+      ✓ Merci, votre message a bien été envoyé. Nous vous répondrons sous 24h.
+    </div>
+
     <!-- ====================== HERO ====================== -->
     <section class="relative hero-grid overflow-hidden" aria-labelledby="hero-title">
       <div class="absolute inset-0 -z-10 bg-gradient-to-b from-nuit2/40 via-nuit to-nuit"></div>
@@ -446,7 +451,14 @@
         </div>
 
         <form class="mt-10 bg-nuit rounded-2xl border border-slate-700 p-6 sm:p-8 space-y-5"
-              action="mailto:gandaletfamou42632@gmail.com" method="post" enctype="text/plain" aria-label="Formulaire de contact">
+              action="https://formsubmit.co/gandaletfamou42632@gmail.com" method="POST" aria-label="Formulaire de contact">
+          <!-- Champs techniques Formsubmit -->
+          <input type="hidden" name="_subject" value="Nouveau message — CEDEAO Bourses" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://cedeao-bourses.vercel.app/?merci=1" />
+          <!-- Pot de miel anti-spam (champ invisible) -->
+          <input type="text" name="_honey" style="display:none" autocomplete="off" tabindex="-1" />
           <div class="grid gap-5 sm:grid-cols-2">
             <div>
               <label for="nom" class="block text-sm font-semibold text-slate-200">Nom complet <span class="text-conf" aria-hidden="true">*</span></label>
@@ -492,7 +504,7 @@
               Contacter sur WhatsApp
             </a>
           </div>
-          <p class="text-xs text-slate-400">Réponse garantie sous 24h. Vos informations restent strictement confidentielles.</p>
+          <p class="text-xs text-slate-400">Envoi sécurisé (HTTPS) • Réponse garantie sous 24h • Vos informations restent strictement confidentielles.</p>
 
           <div class="mt-2 pt-5 border-t border-slate-700 grid gap-3 sm:grid-cols-2 text-sm">
             <a href="mailto:gandaletfamou42632@gmail.com" class="inline-flex items-center gap-2 text-slate-200 hover:text-orlight font-medium">
@@ -582,6 +594,14 @@
           btn.setAttribute('aria-expanded', 'false');
         });
       });
+    })();
+
+    // Affiche la bannière de remerciement après l'envoi du formulaire (?merci=1)
+    (function () {
+      if (new URLSearchParams(window.location.search).get('merci') === '1') {
+        const m = document.getElementById('merci');
+        if (m) { m.classList.remove('hidden'); m.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      }
     })();
   </script>
 </body>
